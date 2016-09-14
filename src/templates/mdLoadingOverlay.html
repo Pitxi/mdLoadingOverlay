@@ -1,0 +1,39 @@
+<!--
+	Project: mdLoadingOverlay
+	Authors: Javier Campón Pichardo
+	Date: 14/09/2016
+	Copyright: Copyright (c) 2016 Javier Campón Pichardo
+	distributed under The MIT License.
+
+	mdLoadingOverlay component template.
+!-->
+<style scoped>
+	.overlay-panel {
+		/*position: fixed;*/
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1000;
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+
+	.overlay-panel .progress-title
+	{
+		font-size: 24px;
+		font-weight: bold;
+		color: red;
+		text-shadow: 1px 1px rgba(0, 0, 0, 0.75);
+	}
+</style>
+
+<div
+	class="overlay-panel fade"
+	ng-if="$ctrl.show"
+	layout-fill>
+	<md-progress-circular
+		md-mode="indeterminate"
+		md-diameter="{{ $ctrl.diameter }}">
+	</md-progress-circular>
+	<div class="progress-title">{{ $ctrl.message }}</div>
+</div>

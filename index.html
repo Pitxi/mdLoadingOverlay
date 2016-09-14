@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="test">
+	<head>
+		<title>Testing mdLoadingOverlay</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+		<script src="bower_components/angular-messages/angular-messages.min.js"></script>
+		<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+		<script src="bower_components/angular-material/angular-material.min.js"></script>
+		<script src="dist/mdLoadingOverlay.js"></script>
+		<script src="app.js"></script>
+		<link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.css">
+	</head>
+	<body>
+		<div ng-controller="testCtrl" layout="row" layout-fill flex>
+			<md-loading-overlay message="Testing\u2026" diameter="100" show="true">
+		</div>
+	</body>
+</html>
