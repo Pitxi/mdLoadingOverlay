@@ -11,14 +11,12 @@
 {
 	'use strict';
 
-	angular.module('mdLoadingOverlay')
+	angular.module('mdLoadingOverlay', [ 'ngMaterial' ])
 	.component('mdLoadingOverlay', {
 		templateUrl: '/templates/mdLoadingOverlay.html',
 		controller: 'mdLoadingOverlayCtrl',
 		bindings: {
-			diameter: '<',
-			show: '<',
-			message: '@'
+			options: '<'
 		}
 	})
 	.controller('mdLoadingOverlayCtrl', mdLoadingOverlayCtrl);
@@ -26,8 +24,16 @@
 	function mdLoadingOverlayCtrl()
 	{
 		this.$onInit = function() {
-			if (!this.message) {
-				this.message = 'Esperando\u2026'
+			if (!this.options) {
+				this.options = {}
+			}
+
+			if (!this.options.message) {
+				this.options.message = 'Esperando\u2026'
+			}
+
+			if (!this.options.spinner || !this.options.spinner.diameter) {
+				this.options.spinner = { diameter: 100 }
 			}
 		};
 	}

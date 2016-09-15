@@ -9,7 +9,7 @@
 !-->
 <style scoped>
 	.overlay-panel {
-		/*position: fixed;*/
+		position: fixed;
 		top: 0;
 		right: 0;
 		bottom: 0;
@@ -18,22 +18,33 @@
 		background-color: rgba(0, 0, 0, 0.5);
 	}
 
-	.overlay-panel .progress-title
-	{
+	.overlay-panel .progress-title {
 		font-size: 24px;
 		font-weight: bold;
-		color: red;
-		text-shadow: 1px 1px rgba(0, 0, 0, 0.75);
+		text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+		margin-top: 1rem;
 	}
 </style>
 
 <div
 	class="overlay-panel fade"
-	ng-if="$ctrl.show"
-	layout-fill>
+	ng-class="$ctrl.options.class"
+	layout="column"
+	layout-align="center center"
+	layout-fill
+	flex
+	ng-style="$ctrl.options.style">
 	<md-progress-circular
+		ng-class="$ctrl.options.spinner.class"
 		md-mode="indeterminate"
-		md-diameter="{{ $ctrl.diameter }}">
+		ng-attr-md-diameter="{{ $ctrl.options.spinner.diameter }}"
+		layout="row"
+		layout-align="center center">
 	</md-progress-circular>
-	<div class="progress-title">{{ $ctrl.message }}</div>
+	<div
+		class="progress-title"
+		ng-class="$ctrl.options.message.class"
+		ng-style="$ctrl.options.message.style">
+		{{ $ctrl.options.message.text || $ctrl.options.message }}
+	</div>
 </div>

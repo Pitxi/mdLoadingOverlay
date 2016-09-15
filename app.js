@@ -8,8 +8,11 @@
 	testCtrl.$inject = [ '$scope' ]
 	function testCtrl($scope)
 	{
-		$scope.buttonBarOptions = {
-			title: 'Test button bar'
+		$scope.overlayOptions =
+		{
+			style: { 'background-color': 'rgba(84, 48, 26, 0.5)' },
+			message: { text: 'Testing again\u2026', style: { color: 'red' } },
+			spinner: { diameter: 50 }
 		}
 	}
 })();

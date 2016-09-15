@@ -1,7 +1,11 @@
 {
   "name": "md-loading-overlay",
   "description": "Overlay with mdProgressBarCircular control and a message.",
-  "main": "",
+  "main": [
+    "mdLoadingOverlay.js",
+    "mdLoadingOverlay.min.js",
+    "mdLoadingOverlay.min.js.map"
+  ],
   "authors": [
     "Javier Campón Pichardo"
   ],
@@ -9,10 +13,11 @@
   "homepage": "https://github.com/Pitxi/mdLoadingOverlay.git/#README.md",
   "ignore": [
     "**/.*",
+    "index.html",
+    "gulpfile.js",
+    "app.js",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "bower_components"
   ],
   "dependencies": {
     "angular": "1.5.8",
