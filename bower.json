@@ -20,7 +20,6 @@
     "bower_components"
   ],
   "dependencies": {
-    "angular": "1.5.8",
     "angular-material": "^1.1.1"
   }
 }
