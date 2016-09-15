@@ -13,6 +13,7 @@
   "homepage": "https://github.com/Pitxi/mdLoadingOverlay.git/#README.md",
   "ignore": [
     "**/.*",
+    "temp",
     "index.html",
     "app.js",
     "node_modules",

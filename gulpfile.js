@@ -12,25 +12,33 @@
 	concat        = require('gulp-concat'),
 	sourcemaps    = require('gulp-sourcemaps'),
 	uglify        = require('gulp-uglify'),
-	clean         = require('gulp-clean');
+	del           = require('del');
 
-	gulp.task('clean', function() {
-		return gulp.src('dist', { read: false }).pipe(clean());
+	gulp.task('clean:dist', function() {
+		return del('dist');
 	});
 
-	gulp.task('build-templates', [ 'clean' ], function() {
-		return merge(
-			gulp.src('src/js/' + moduleName + '.js'),
-			gulp.src('src/templates/' + moduleName + '.html')
-				.pipe(templateCache('templatesCache.js', {
-					root  : '/templates/',
-					module: moduleName
-				})))
-		.pipe(concat(moduleName + '.js'))
-		.pipe(gulp.dest('dist'));
+	gulp.task('clean:temp', function() {
+		return del('temp');
 	});
 
-	gulp.task('build', [ 'build-templates' ], function() {
+	gulp.task('clean', [ 'clean:dist', 'clean:temp' ]);
+
+	gulp.task('build:templates', [ 'clean:temp' ], function() {
+		return gulp.src('src/templates/' + moduleName + '.html')
+			.pipe(templateCache('templatesCache.js', { root  : '/templates/', module: moduleName }))
+			.pipe(gulp.dest('temp'));
+	});
+
+	gulp.task('concat:templates', [ 'build:templates' ], function() {
+		return gulp.src(['src/js/' + moduleName + '.js', 'temp/templatesCache.js'])
+			.pipe(concat(moduleName + '.js'))
+			.pipe(gulp.dest('dist'));
+	});
+
+	gulp.task('build', [ 'concat:templates' ], function() {
+		del('temp');
+
 		return gulp.src('dist/' + moduleName + '.js')
 			.pipe(sourcemaps.init())
 				.pipe(uglify({ preserveComments: 'license' }))
