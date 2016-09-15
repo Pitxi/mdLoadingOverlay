@@ -4,7 +4,7 @@
 (function() {
 	'use strinct';
 
-	var moduleName = 'mdButtonBar';
+	var moduleName = 'mdLoadingOverlay';
 	var gulp      = require('gulp'),
 	merge         = require('merge-stream'),
 	templateCache = require('gulp-angular-templatecache'),
