@@ -14,7 +14,6 @@
   "ignore": [
     "**/.*",
     "index.html",
-    "gulpfile.js",
     "app.js",
     "node_modules",
     "bower_components"
