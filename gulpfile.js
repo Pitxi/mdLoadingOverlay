@@ -4,7 +4,7 @@
 (function() {
 	'use strinct';
 
-	var moduleName = 'mdLoadingOverlay';
+	var moduleName = 'mdButtonBar';
 	var gulp      = require('gulp'),
 	merge         = require('merge-stream'),
 	templateCache = require('gulp-angular-templatecache'),
@@ -18,7 +18,7 @@
 		return gulp.src('dist', { read: false }).pipe(clean());
 	});
 
-	gulp.task('build-templates', ['clean'], function() {
+	gulp.task('build-templates', [ 'clean' ], function() {
 		return merge(
 			gulp.src('src/js/' + moduleName + '.js'),
 			gulp.src('src/templates/' + moduleName + '.html')
@@ -30,7 +30,7 @@
 		.pipe(gulp.dest('dist'));
 	});
 
-	gulp.task('minify', ['build-templates'], function() {
+	gulp.task('build', [ 'build-templates' ], function() {
 		return gulp.src('dist/' + moduleName + '.js')
 			.pipe(sourcemaps.init())
 				.pipe(uglify({ preserveComments: 'license' }))
