@@ -24,17 +24,10 @@
 	function mdLoadingOverlayCtrl()
 	{
 		this.$onInit = function() {
-			if (!this.options) {
-				this.options = {}
-			}
-
-			if (!this.options.message) {
-				this.options.message = 'Esperando\u2026'
-			}
-
-			if (!this.options.spinner || !this.options.spinner.diameter) {
-				this.options.spinner = { diameter: 100 }
-			}
+			if (!this.options) { this.options = {};	}
+			if (!this.options.message) { this.options.message = 'Esperando\u2026'; }
+			if (!this.options.spinner) { this.options.spinner = {};	}
+			if (!this.options.spinner.diameter) { this.options.spinner.diameter = 100; }
 		};
 	}
 })();

@@ -1,11 +1,6 @@
 {
   "name": "md-loading-overlay",
   "description": "Overlay with mdProgressBarCircular control and a message.",
-  "main": [
-    "mdLoadingOverlay.js",
-    "mdLoadingOverlay.min.js",
-    "mdLoadingOverlay.min.js.map"
-  ],
   "authors": [
     "Javier Campón Pichardo"
   ],
